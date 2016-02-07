@@ -58,13 +58,10 @@ void loop()
 
 void drive()
 {
-  myservo.write(40);                // rotate counterclockwise full speed
+  myservo.write(40);                // rotate forward full speed
   myservo2.write(120);
 }
-void turn_right() //90 degrees
-{
-  myservo.write(120);                // rotate counterclockwise full speed
-  myservo2.write(120);
+
 }
 void turn_left()//90 degrees
 {
