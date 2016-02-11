@@ -1,0 +1,48 @@
+/*WPI GOATS OF GODDARD BATTLE OF THE ROCKETS 2016 ROVER CODE*/
+//Code Written to be used with an Arduino Mega alonside an Adafruit Motorshield V2
+
+///////////////INCLUDE LIBRARIES//////////////////////////////////////
+#include <Wire.h>//Needed for Motor Shield
+#include <Servo.h>//Needed for Servos
+#include <Adafruit_MotorShield.h>//Include Adafruit Motor Shield Library
+//#include <"utility/Adafruit_PWMServoDriver.h">//Needed for Motor Shield
+//#include <>//some other needed libraries
+//#include <>// sensors libraries
+
+//////////////DECLARE OBJECTS (Shield, Motors, Servos)/////////
+Adafruit_MotorShield AFMS = Adafruit_MotorShield();
+//create the motor shield object with the default I2C adress
+
+Adafruit_DCMotor *lmotor = AFMS.getMotor(4);//declare left motor and set it to motor port 4
+Adafruit_DCMotor *rmotor = AFMS.getMotor(3);//declare right motor and set it to motor port 3
+Servo marker1;//declare marker 1 servo
+Servo marker2;//declare marker 2 servo
+
+///////////////Global Variables/////////////////////////////////
+int baud = 9600;//serial baud rate
+
+///////////////////////////////////////////////SETUP////////////////////////////////////////
+void setup() {//runs once at starup
+
+ ///////Initialize Sensors & Controllers////////////////
+  Serial.begin(baud);
+  Serial.println("Goats of Goddard Battle of the Rockets");
+  
+  AFMS.begin();//create with the default frequency 1.6KHz
+  
+ //////Atach servo to pins//////////////////////////////////
+  marker1.attach(10);
+  marker2.attach(20);
+  
+ ///////Initialize Motors/////////////////////////////
+  lmotor->setSpeed(200);
+  lmotor->run(RELEASE);
+  rmotor->setSpeed(200);
+  rmotor->run(RELEASE);
+  
+}
+
+void loop() {
+  //Write Main Rover Code//
+
+}
